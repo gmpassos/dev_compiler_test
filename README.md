@@ -11,6 +11,11 @@ The main issue is to emmit a `FutureOr<T>` to be returned by a `closure/local` f
 
 NOTE: The example code is just to isolate the compiler error and is not a useful code.
 
+## Dart SDK Issue
+
+You can follow this issue at:
+https://github.com/dart-lang/sdk/issues/48631
+
 ## Running examples:
 
 ```shell
@@ -27,6 +32,15 @@ Difference between codes:
 
 ```shell
 diff example/example_error.dart example/example_ok.dart 
+```
+
+Output:
+```text
+$> diff example/example_error.dart example/example_ok.dart
+9c9
+<     if (e != null) return e as T;
+---
+>     if (e != null) return e as T?;
 ```
 
 ## Error output
